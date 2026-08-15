@@ -1,0 +1,189 @@
+[
+  {
+    "title": "Alien: Planeta Tierra",
+    "year": 2025,
+    "genres": [
+      "Sci-Fi & Fantasy",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8IIPZe4V2xNYFWY7lBY6GpN2L8O.jpg"
+  },
+  {
+    "title": "El señor de las moscas",
+    "year": 2026,
+    "genres": [
+      "Drama",
+      "Action & Adventure"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/o867yrias7YUjEvNrjoeQD97xHP.jpg"
+  },
+  {
+    "title": "Fallout",
+    "year": 2024,
+    "genres": [
+      "Action & Adventure",
+      "Sci-Fi & Fantasy"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/bseAODUUu5ZpX5W0Nip3yGsN143.jpg"
+  },
+  {
+    "title": "Fargo",
+    "year": 2014,
+    "genres": [
+      "Crimen",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/a3VW6khsyUVKrG0GBCWFG3NzWPX.jpg"
+  },
+  {
+    "title": "FROM",
+    "year": 2022,
+    "genres": [
+      "Misterio",
+      "Drama",
+      "Sci-Fi & Fantasy"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7pHMZ6EsZfs2qZu0Lv2UGtTo5MU.jpg"
+  },
+  {
+    "title": "Heridas abiertas",
+    "year": 2018,
+    "genres": [
+      "Crimen",
+      "Drama",
+      "Misterio"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/o4YZTxggydF46V0ZhiaoXqfxM72.jpg"
+  },
+  {
+    "title": "La maldición de Widow's Bay",
+    "year": 2026,
+    "genres": [
+      "Drama",
+      "Misterio",
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/hAI5wOXpKdbTRnjSZMw9FpfKlMS.jpg"
+  },
+  {
+    "title": "MINDHUNTER",
+    "year": 2017,
+    "genres": [
+      "Drama",
+      "Crimen"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/fbKE87mojpIETWepSbD5Qt741fp.jpg"
+  },
+  {
+    "title": "Mr. Robot",
+    "year": 2015,
+    "genres": [
+      "Crimen",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/kv1nRqgebSsREnd7vdC2pSGjpLo.jpg"
+  },
+  {
+    "title": "Sherlock",
+    "year": 2010,
+    "genres": [
+      "Crimen",
+      "Drama",
+      "Misterio"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7WTsnHkbA0FaG6R9twfFde0I9hl.jpg"
+  },
+  {
+    "title": "Shōgun",
+    "year": 2024,
+    "genres": [
+      "Drama",
+      "War & Politics"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/uIoDvVOQaKjSfz2oihkVS8M7l1v.jpg"
+  },
+  {
+    "title": "Silo",
+    "year": 2023,
+    "genres": [
+      "Sci-Fi & Fantasy",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/s4yRu8IRcMLbfoUsO4q9Yuci4F0.jpg"
+  },
+  {
+    "title": "Succession",
+    "year": 2018,
+    "genres": [
+      "Drama",
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/xyHasySw0HQ4ndRWHvrpRTAsWXd.jpg"
+  },
+  {
+    "title": "The Boys",
+    "year": 2019,
+    "genres": [
+      "Sci-Fi & Fantasy",
+      "Action & Adventure"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lTb6v3ZRanWLWoOpofXrBHNo9s1.jpg"
+  },
+  {
+    "title": "The Last of Us",
+    "year": 2023,
+    "genres": [
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tNQWO6cNzQYCyvw36mUcAQQyf5F.jpg"
+  },
+  {
+    "title": "The Studio",
+    "year": 2025,
+    "genres": [
+      "Comedia",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/aAo5s26gm63Lo7NXaBhskydxiX.jpg"
+  },
+  {
+    "title": "The Terror",
+    "year": 2018,
+    "genres": [
+      "Misterio",
+      "Drama",
+      "Sci-Fi & Fantasy"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/xIr57vgpISFUxUfKrX195u5e7A4.jpg"
+  },
+  {
+    "title": "True Detective",
+    "year": 2014,
+    "genres": [
+      "Drama",
+      "Misterio"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/xZSuQm2KQQKoVKf31HgUWkjAVga.jpg"
+  },
+  {
+    "title": "Watchmen",
+    "year": 2019,
+    "genres": [
+      "Drama",
+      "Crimen",
+      "Sci-Fi & Fantasy",
+      "Misterio",
+      "Action & Adventure"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/m8rWq3j73ZGhDuSCZWMMoE9ePH1.jpg"
+  },
+  {
+    "title": "Westworld",
+    "year": 2016,
+    "genres": [
+      "Sci-Fi & Fantasy",
+      "Western"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/vRAFOKQ2JxOagiJZaGQxmqTY1yl.jpg"
+  }
+]

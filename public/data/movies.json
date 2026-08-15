@@ -1,0 +1,690 @@
+[
+  {
+    "title": "American Fiction",
+    "year": 2023,
+    "genres": [
+      "Comedia",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/reCA39ozy3wtQ2br2Q8Dm3AhYdC.jpg"
+  },
+  {
+    "title": "Anticristo",
+    "year": 2009,
+    "genres": [
+      "Drama",
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/o9Tvsej9AjBDQqRzxdXIZS5cNiJ.jpg"
+  },
+  {
+    "title": "Así empezó Hollywood",
+    "year": 1976,
+    "genres": [
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/5MA3UfOBuHEogiH6mv2BMrnBxNE.jpg"
+  },
+  {
+    "title": "Backrooms",
+    "year": 2026,
+    "genres": [
+      "Terror",
+      "Misterio",
+      "Ciencia ficción"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3YTb97zytlWRWZb7HrOiEhk4e6f.jpg"
+  },
+  {
+    "title": "Battle Royale",
+    "year": 2000,
+    "genres": [
+      "Drama",
+      "Suspense",
+      "Acción"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/e9UQGoX2ZFNdrjLwEejMSMDSxmR.jpg"
+  },
+  {
+    "title": "Belén",
+    "year": 2025,
+    "genres": [
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/fto3pNhRmildPHJuF5UrAs6DXuK.jpg"
+  },
+  {
+    "title": "Buena suerte, pásalo bien, no mueras",
+    "year": 2025,
+    "genres": [
+      "Ciencia ficción",
+      "Acción",
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/blfTYXDP1luoeku48pVkrZ6Zjwv.jpg"
+  },
+  {
+    "title": "Bugonia",
+    "year": 2025,
+    "genres": [
+      "Ciencia ficción",
+      "Suspense",
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/fndDv16tDmgvMBJd2bb2w5CDxpe.jpg"
+  },
+  {
+    "title": "Ciudadano Kane",
+    "year": 1941,
+    "genres": [
+      "Misterio",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/w7V0bv38Z0q0DgHmMfcGM4WRNTv.jpg"
+  },
+  {
+    "title": "Civil War",
+    "year": 2024,
+    "genres": [
+      "Bélica",
+      "Acción",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rLyuE271bVhhRMTjukRNXkWTg6C.jpg"
+  },
+  {
+    "title": "Cleo de 5 a 7",
+    "year": 1962,
+    "genres": [
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/k5dXkYYgjRcWFfgm8dSdYr9abAc.jpg"
+  },
+  {
+    "title": "El acorazado Potemkin",
+    "year": 1925,
+    "genres": [
+      "Drama",
+      "Historia",
+      "Bélica"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/olQ0vHFCK5TzRyNkkT2aJgG2gLz.jpg"
+  },
+  {
+    "title": "El agente secreto",
+    "year": 2025,
+    "genres": [
+      "Crimen",
+      "Drama",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qYWybdgL6casJxbZE0xLGXsdWOP.jpg"
+  },
+  {
+    "title": "El día de la revelación",
+    "year": 2026,
+    "genres": [
+      "Ciencia ficción",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8yQ7RDPPBlHMYdIo4ihPkHkOfnY.jpg"
+  },
+  {
+    "title": "El Gran Rugido",
+    "year": 1981,
+    "genres": [
+      "Aventura",
+      "Comedia",
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/2W432TNjQJRs9sc3TcMyRmrHZ0x.jpg"
+  },
+  {
+    "title": "El ilusionista",
+    "year": 2006,
+    "genres": [
+      "Fantasía",
+      "Drama",
+      "Suspense",
+      "Romance"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3hMbCR83Z7tboG6qPsCXkmZDrxs.jpg"
+  },
+  {
+    "title": "El silencio de un hombre (El samurái)",
+    "year": 1967,
+    "genres": [
+      "Crimen",
+      "Suspense",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rjA2UW47qTIeuL6aNHTbUu6yTP6.jpg"
+  },
+  {
+    "title": "El último testigo",
+    "year": 1974,
+    "genres": [
+      "Crimen",
+      "Drama",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lJSlTRsIpzydzTNLbsY4iv4POLr.jpg"
+  },
+  {
+    "title": "En el calor de la noche",
+    "year": 1967,
+    "genres": [
+      "Crimen",
+      "Drama",
+      "Misterio",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lRkD04pmGpVSYsObL4LZctxiCt9.jpg"
+  },
+  {
+    "title": "Exit 8",
+    "year": 2025,
+    "genres": [
+      "Terror",
+      "Misterio",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/55M0P4DpAPwoe4RJ1zHBNtVmTkO.jpg"
+  },
+  {
+    "title": "Fat City, ciudad dorada",
+    "year": 1972,
+    "genres": [
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7ag7BOMnAuDKwNyI0wc8jTeimRb.jpg"
+  },
+  {
+    "title": "Hiroshima mon amour",
+    "year": 1959,
+    "genres": [
+      "Drama",
+      "Historia",
+      "Romance"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/q2fmvMrBqNnniukiVRthGPrshUU.jpg"
+  },
+  {
+    "title": "Hokum",
+    "year": 2026,
+    "genres": [
+      "Terror"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/thRJXNSUsqSNJALSKmXYNWSijB5.jpg"
+  },
+  {
+    "title": "Hoppers",
+    "year": 2026,
+    "genres": [
+      "Aventura",
+      "Animación",
+      "Comedia",
+      "Familia",
+      "Ciencia ficción"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/yONVGkDGZ07WGAR5Fq0GErzHUZ9.jpg"
+  },
+  {
+    "title": "La batalla de Argel",
+    "year": 1966,
+    "genres": [
+      "Drama",
+      "Bélica",
+      "Historia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tw3GaZhFDxtVJdibJwbnE3FSthl.jpg"
+  },
+  {
+    "title": "La jetée",
+    "year": 1962,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Ciencia ficción"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/h8DykeLWkZtG1wKcIqBj82ffwoU.jpg"
+  },
+  {
+    "title": "La leyenda de Aang: El último Airbender",
+    "year": 2026,
+    "genres": [
+      "Animación",
+      "Acción",
+      "Aventura",
+      "Fantasía"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/e2VzQmZufeY3BPH0zWtIyr07Z7w.jpg"
+  },
+  {
+    "title": "La momia de Lee Cronin",
+    "year": 2026,
+    "genres": [
+      "Terror",
+      "Misterio"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/5RhY8eHWzvjw32449pHdUkOeDCN.jpg"
+  },
+  {
+    "title": "La puerta del cielo",
+    "year": 1980,
+    "genres": [
+      "Drama",
+      "Western"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/uDBkPS7hCWFdvKRadUn7QvbX1EN.jpg"
+  },
+  {
+    "title": "La rebelión de las máquinas",
+    "year": 1986,
+    "genres": [
+      "Terror",
+      "Acción",
+      "Ciencia ficción"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/q3DwYQSbMtvKlLXBy6uLiVQbpBm.jpg"
+  },
+  {
+    "title": "La vida de Brian",
+    "year": 1979,
+    "genres": [
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/b4JaQ2ZjPxblj3E3S9ga5ykTita.jpg"
+  },
+  {
+    "title": "La vida de Chuck",
+    "year": 2025,
+    "genres": [
+      "Fantasía",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/wyqRElLURN9sXHQblv50gZboMTF.jpg"
+  },
+  {
+    "title": "La virgen de la tosquera",
+    "year": 2025,
+    "genres": [
+      "Terror",
+      "Drama",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/nLw8adzoWXzF13aHgPVgnfn2rKD.jpg"
+  },
+  {
+    "title": "Los herederos de la tierra",
+    "year": 1971,
+    "genres": [
+      "Ciencia ficción",
+      "Documental"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/edCWeH636wCgUc3UmntxzkcQVDu.jpg"
+  },
+  {
+    "title": "Los sobornados",
+    "year": 1953,
+    "genres": [
+      "Crimen",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3YPt74p6MtqYE2fyFdRXE5m2I9p.jpg"
+  },
+  {
+    "title": "Los tres días del Cóndor",
+    "year": 1975,
+    "genres": [
+      "Suspense",
+      "Misterio"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/wYvIcdlYWCmHUwipf8K3AGd9omg.jpg"
+  },
+  {
+    "title": "Marty Supreme",
+    "year": 2025,
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/guRmwb1r337m2tKBH9KcE3vOpGE.jpg"
+  },
+  {
+    "title": "Mary Shelley",
+    "year": 2017,
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/keF84Cc8Ds2pqbaGVW0lor0xA4.jpg"
+  },
+  {
+    "title": "Noche de bodas 2",
+    "year": 2026,
+    "genres": [
+      "Terror",
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tQV0X354U142Cao8Be6eUt38spS.jpg"
+  },
+  {
+    "title": "Obsesión",
+    "year": 2026,
+    "genres": [
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rmCkNtzYR2xTOO3ZXmIqB5zgYdE.jpg"
+  },
+  {
+    "title": "Pickpocket",
+    "year": 1959,
+    "genres": [
+      "Crimen",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8fQelCr8NrGj0lQjTecm48tHaMc.jpg"
+  },
+  {
+    "title": "Pierrot el loco",
+    "year": 1965,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Crimen"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/suOAqdXi7mEiTLEHmAZlwfqYTzM.jpg"
+  },
+  {
+    "title": "Predator: Badlands",
+    "year": 2025,
+    "genres": [
+      "Acción",
+      "Ciencia ficción",
+      "Aventura"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/r7TEWHLr1lsIsTkiEFwtM3hAWma.jpg"
+  },
+  {
+    "title": "Proyecto Salvación",
+    "year": 2026,
+    "genres": [
+      "Ciencia ficción",
+      "Aventura"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/5OrMnHwTlvndWr5vIWvyZhi4LfU.jpg"
+  },
+  {
+    "title": "Punto límite",
+    "year": 1964,
+    "genres": [
+      "Suspense",
+      "Drama",
+      "Bélica"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/xI395veQyi2da6gzo7JLBN0anx7.jpg"
+  },
+  {
+    "title": "Repo Man (El recuperador)",
+    "year": 1984,
+    "genres": [
+      "Comedia",
+      "Ciencia ficción"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/aX0DvCsGDQ7LVmTwTBgiPkqzGIy.jpg"
+  },
+  {
+    "title": "Rojo oscuro",
+    "year": 1975,
+    "genres": [
+      "Terror",
+      "Misterio",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/2QTU0JCmcgLhhDvxy58fPkPLkpM.jpg"
+  },
+  {
+    "title": "Sanjuro",
+    "year": 1962,
+    "genres": [
+      "Drama",
+      "Acción",
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/v45YU8EQe0zgRI0nYwQ0NcBUEjg.jpg"
+  },
+  {
+    "title": "Shelter: El Protector",
+    "year": 2026,
+    "genres": [
+      "Acción",
+      "Crimen",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/4oAt5z4IODM7yPFGevNJ1Qg7ij8.jpg"
+  },
+  {
+    "title": "Sirat: Trance en el desierto",
+    "year": 2025,
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/edEDZwU3kZerqdylZsyCn7feH23.jpg"
+  },
+  {
+    "title": "Take Shelter",
+    "year": 2011,
+    "genres": [
+      "Suspense",
+      "Drama",
+      "Terror"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/915o7bvyYyOtU8u7UWax9CDQh83.jpg"
+  },
+  {
+    "title": "Te van a matar",
+    "year": 2026,
+    "genres": [
+      "Acción",
+      "Comedia",
+      "Terror"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/jOYxV166K7b7HWnswjoZKxi3sux.jpg"
+  },
+  {
+    "title": "Temblores",
+    "year": 1990,
+    "genres": [
+      "Terror",
+      "Acción",
+      "Ciencia ficción",
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qFZYBZjIrJXRGjRnDloDU2i0rxb.jpg"
+  },
+  {
+    "title": "Testigo silencioso",
+    "year": 1978,
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7a13U3kaJzqwHtR1btHESv7Q5b8.jpg"
+  },
+  {
+    "title": "The Mastermind",
+    "year": 2025,
+    "genres": [
+      "Drama",
+      "Crimen"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1LxxcBW2Y6HezxNTjOIDZrEAGRY.jpg"
+  },
+  {
+    "title": "Trenque Lauquen",
+    "year": 2023,
+    "genres": [
+      "Misterio",
+      "Drama",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/iET3xOZdDAicLiqHY0K4I8arJ0R.jpg"
+  },
+  {
+    "title": "Turno de noche",
+    "year": 2026,
+    "genres": [
+      "Terror",
+      "Ciencia ficción",
+      "Comedia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/hi7VXGRX4KTiW4Ynt75MALwOfxa.jpg"
+  },
+  {
+    "title": "Un condenado a muerte se ha escapado",
+    "year": 1956,
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dly2pAkej6rFRwBElN3XutPgLR4.jpg"
+  },
+  {
+    "title": "Una mujer atrapada",
+    "year": 1964,
+    "genres": [
+      "Drama",
+      "Misterio",
+      "Suspense",
+      "Terror"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/f0eafb0uhYhBTvA2MRB1vN0yJL7.jpg"
+  },
+  {
+    "title": "undertone",
+    "year": 2026,
+    "genres": [
+      "Terror",
+      "Misterio"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/85OfcPsWIpERIr7yRWOUr7S1g8b.jpg"
+  },
+  {
+    "title": "V/H/S",
+    "year": 2012,
+    "genres": [
+      "Suspense",
+      "Terror"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/4pfIa7DnOJxteBsrkePMY1TSlGL.jpg"
+  },
+  {
+    "title": "V/H/S: Viral",
+    "year": 2014,
+    "genres": [
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/q6NrO3iTSdhR04AOzldUDxDiuS6.jpg"
+  },
+  {
+    "title": "V/H/S/2",
+    "year": 2013,
+    "genres": [
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/o4hcWsHaHaNQ9BBReOxLvYJNRhA.jpg"
+  },
+  {
+    "title": "V/H/S/85",
+    "year": 2023,
+    "genres": [
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/aM3wnZTKEuPLDwxuMWcHDibOkiw.jpg"
+  },
+  {
+    "title": "V/H/S/94",
+    "year": 2021,
+    "genres": [
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9fSogEkqDfJQTuGHsTFloQz3Tw8.jpg"
+  },
+  {
+    "title": "V/H/S/99",
+    "year": 2022,
+    "genres": [
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1bOMmFtnykBmvhFcx8zdXO6bCAa.jpg"
+  },
+  {
+    "title": "V/H/S/Beyond",
+    "year": 2024,
+    "genres": [
+      "Terror",
+      "Ciencia ficción",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/wXaf6VGNHIGU7qivapGOF7o4o4N.jpg"
+  },
+  {
+    "title": "V/H/S/Halloween",
+    "year": 2025,
+    "genres": [
+      "Terror",
+      "Suspense"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/bvMKSZtN8KAdtlKoYbEi1Zhyaou.jpg"
+  },
+  {
+    "title": "Valor sentimental",
+    "year": 2025,
+    "genres": [
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/s4a3hpTmws0mNLEn0BNBRiX5q3g.jpg"
+  },
+  {
+    "title": "Z",
+    "year": 1969,
+    "genres": [
+      "Suspense",
+      "Crimen",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ecsJAiMViUkFdeJ9sRzzxiCt7fa.jpg"
+  },
+  {
+    "title": "Zootrópolis 2",
+    "year": 2025,
+    "genres": [
+      "Animación",
+      "Aventura",
+      "Comedia",
+      "Misterio",
+      "Familia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/LrMBxFwnsMgXTnaWqHYinn3vDN.jpg"
+  },
+  {
+    "title": "Воздух",
+    "year": 2024,
+    "genres": [
+      "Bélica",
+      "Drama",
+      "Historia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ufVlUn8sl58gyZs9RCRJpeeM0jT.jpg"
+  }
+]

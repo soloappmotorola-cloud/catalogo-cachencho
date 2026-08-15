@@ -1,0 +1,236 @@
+---
+import movies from '../../public/data/movies.json';
+import series from '../../public/data/series.json';
+
+function groupByGenre(items: { title: string; year: number | null; genres: string[]; posterUrl: string | null }[]) {
+  const groups = new Map<string, typeof items>();
+  for (const item of items) {
+    const genres = item.genres.length ? item.genres : ['Sin género'];
+    for (const genre of genres) {
+      if (!groups.has(genre)) groups.set(genre, []);
+      groups.get(genre)!.push(item);
+    }
+  }
+  return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], 'es'));
+}
+
+const movieGenres = groupByGenre(movies);
+const seriesGenres = groupByGenre(series);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Catálogo Cachencho</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Catálogo Cachencho</h1>
+      <p class="subtitle">Lo que hay para ver ahora mismo. Página temporal, compartida solo con ustedes.</p>
+      <nav class="top-nav">
+        <a href="#peliculas">Películas ({movies.length})</a>
+        <a href="#series">Series ({series.length})</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="peliculas">
+        <h2 class="section-title">Películas</h2>
+        {
+          movieGenres.map(([genre, items]) => (
+            <div class="genre-block">
+              <h3 class="genre-title">{genre}</h3>
+              <div class="card-row">
+                {items.map((item) => (
+                  <article class="card">
+                    {item.posterUrl ? (
+                      <img src={item.posterUrl} alt={item.title} loading="lazy" width="500" height="750" />
+                    ) : (
+                      <div class="no-poster">{item.title}</div>
+                    )}
+                    <p class="card-title">
+                      {item.title} {item.year ? <span class="year">({item.year})</span> : null}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </section>
+
+      <section id="series">
+        <h2 class="section-title">Series</h2>
+        {
+          seriesGenres.map(([genre, items]) => (
+            <div class="genre-block">
+              <h3 class="genre-title">{genre}</h3>
+              <div class="card-row">
+                {items.map((item) => (
+                  <article class="card">
+                    {item.posterUrl ? (
+                      <img src={item.posterUrl} alt={item.title} loading="lazy" width="500" height="750" />
+                    ) : (
+                      <div class="no-poster">{item.title}</div>
+                    )}
+                    <p class="card-title">
+                      {item.title} {item.year ? <span class="year">({item.year})</span> : null}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Página no indexada — no la compartas más allá de este link.</p>
+    </footer>
+
+    <style>
+      :root {
+        --bg: #0f1115;
+        --bg-card: #1a1d24;
+        --text: #e8e8ec;
+        --text-dim: #9a9aa5;
+        --accent: #6ea8fe;
+        --border: #2a2d36;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        line-height: 1.4;
+      }
+
+      .site-header {
+        padding: 2.5rem 1.5rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .site-header h1 {
+        margin: 0 0 0.4rem;
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+      }
+
+      .subtitle {
+        margin: 0 0 1.2rem;
+        color: var(--text-dim);
+      }
+
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .top-nav a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .top-nav a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .genre-block {
+        margin-bottom: 2rem;
+      }
+
+      .genre-title {
+        font-size: 1.1rem;
+        color: var(--text-dim);
+        margin: 0 0 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .card-row {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+      }
+
+      .card {
+        flex: 0 0 auto;
+        width: 140px;
+      }
+
+      .card img,
+      .no-poster {
+        width: 140px;
+        height: 210px;
+        border-radius: 8px;
+        object-fit: cover;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+      }
+
+      .no-poster {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        color: var(--text-dim);
+      }
+
+      .card-title {
+        margin: 0.5rem 0 0;
+        font-size: 0.85rem;
+        line-height: 1.3;
+      }
+
+      .year {
+        color: var(--text-dim);
+        font-weight: normal;
+      }
+
+      .site-footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        color: var(--text-dim);
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 480px) {
+        .card {
+          width: 110px;
+        }
+        .card img,
+        .no-poster {
+          width: 110px;
+          height: 165px;
+        }
+      }
+    </style>
+  </body>
+</html>
