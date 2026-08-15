@@ -22,6 +22,18 @@ if (!JELLYFIN_API_KEY || !SEERR_API_KEY || !JELLYFIN_MOVIES_LIBRARY_ID || !JELLY
 
 const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
 
+// Jellyfin trae los géneros de películas ya traducidos, pero para series
+// devuelve algunas categorías de TMDB TV sin traducir.
+const GENRE_TRANSLATIONS = {
+  'Action & Adventure': 'Acción y aventura',
+  'Sci-Fi & Fantasy': 'Ciencia ficción y fantasía',
+  'War & Politics': 'Bélica y política',
+};
+
+function translateGenre(genre) {
+  return GENRE_TRANSLATIONS[genre] ?? genre;
+}
+
 async function fetchJellyfinItems(libraryId, itemType) {
   const url = new URL(`${JELLYFIN_URL}/Items`);
   url.searchParams.set('ParentId', libraryId);
@@ -64,7 +76,7 @@ async function buildEntries(items, mediaType) {
     entries.push({
       title: item.Name,
       year: item.ProductionYear ?? null,
-      genres: item.Genres ?? [],
+      genres: (item.Genres ?? []).map(translateGenre),
       posterUrl,
     });
   }

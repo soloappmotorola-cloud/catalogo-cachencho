@@ -31,12 +31,19 @@ const seriesGenres = groupByGenre(series);
       <h1>Catálogo Cachencho</h1>
       <p class="subtitle">Lo que hay para ver ahora mismo. Página temporal, compartida solo con ustedes.</p>
       <nav class="top-nav">
+        <a href="#invitacion">Invitación</a>
         <a href="#peliculas">Películas ({movies.length})</a>
         <a href="#series">Series ({series.length})</a>
       </nav>
     </header>
 
     <main>
+      <section id="invitacion" class="invite-section">
+        <h2 class="section-title">No se olviden</h2>
+        <p class="invite-caption">Ignacio presenta su libro — dale una mano y aparecé si podés.</p>
+        <img class="invite-img" src="/img/invitacion.jpeg" alt="Invitación a la presentación del libro Los distintos, de Ignacio González Lowy, en Paraná Lee, Sala Mayo" width="850" height="850" />
+      </section>
+
       <section id="peliculas">
         <h2 class="section-title">Películas</h2>
         {
@@ -132,8 +139,9 @@ const seriesGenres = groupByGenre(series);
 
       .top-nav {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 1.5rem;
+        gap: 0.6rem 1.5rem;
       }
 
       .top-nav a {
@@ -157,6 +165,28 @@ const seriesGenres = groupByGenre(series);
         margin: 2rem 0 1rem;
         padding-bottom: 0.5rem;
         border-bottom: 2px solid var(--border);
+      }
+
+      .invite-section {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .invite-caption {
+        color: var(--text-dim);
+        margin: 0 0 1rem;
+      }
+
+      .invite-img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+        border-radius: 10px;
+        border: 1px solid var(--border);
       }
 
       .genre-block {

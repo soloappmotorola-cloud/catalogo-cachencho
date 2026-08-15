@@ -3,7 +3,7 @@
     "title": "Alien: Planeta Tierra",
     "year": 2025,
     "genres": [
-      "Sci-Fi & Fantasy",
+      "Ciencia ficción y fantasía",
       "Drama"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/8IIPZe4V2xNYFWY7lBY6GpN2L8O.jpg"
@@ -13,7 +13,7 @@
     "year": 2026,
     "genres": [
       "Drama",
-      "Action & Adventure"
+      "Acción y aventura"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/o867yrias7YUjEvNrjoeQD97xHP.jpg"
   },
@@ -21,8 +21,8 @@
     "title": "Fallout",
     "year": 2024,
     "genres": [
-      "Action & Adventure",
-      "Sci-Fi & Fantasy"
+      "Acción y aventura",
+      "Ciencia ficción y fantasía"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/bseAODUUu5ZpX5W0Nip3yGsN143.jpg"
   },
@@ -41,7 +41,7 @@
     "genres": [
       "Misterio",
       "Drama",
-      "Sci-Fi & Fantasy"
+      "Ciencia ficción y fantasía"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/7pHMZ6EsZfs2qZu0Lv2UGtTo5MU.jpg"
   },
@@ -98,7 +98,7 @@
     "year": 2024,
     "genres": [
       "Drama",
-      "War & Politics"
+      "Bélica y política"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/uIoDvVOQaKjSfz2oihkVS8M7l1v.jpg"
   },
@@ -106,7 +106,7 @@
     "title": "Silo",
     "year": 2023,
     "genres": [
-      "Sci-Fi & Fantasy",
+      "Ciencia ficción y fantasía",
       "Drama"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/s4yRu8IRcMLbfoUsO4q9Yuci4F0.jpg"
@@ -124,8 +124,8 @@
     "title": "The Boys",
     "year": 2019,
     "genres": [
-      "Sci-Fi & Fantasy",
-      "Action & Adventure"
+      "Ciencia ficción y fantasía",
+      "Acción y aventura"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/lTb6v3ZRanWLWoOpofXrBHNo9s1.jpg"
   },
@@ -152,7 +152,7 @@
     "genres": [
       "Misterio",
       "Drama",
-      "Sci-Fi & Fantasy"
+      "Ciencia ficción y fantasía"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/xIr57vgpISFUxUfKrX195u5e7A4.jpg"
   },
@@ -171,9 +171,9 @@
     "genres": [
       "Drama",
       "Crimen",
-      "Sci-Fi & Fantasy",
+      "Ciencia ficción y fantasía",
       "Misterio",
-      "Action & Adventure"
+      "Acción y aventura"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/m8rWq3j73ZGhDuSCZWMMoE9ePH1.jpg"
   },
@@ -181,7 +181,7 @@
     "title": "Westworld",
     "year": 2016,
     "genres": [
-      "Sci-Fi & Fantasy",
+      "Ciencia ficción y fantasía",
       "Western"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/vRAFOKQ2JxOagiJZaGQxmqTY1yl.jpg"
