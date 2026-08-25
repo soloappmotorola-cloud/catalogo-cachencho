@@ -1,6 +1,18 @@
 ---
 import movies from '../../public/data/movies.json';
 import series from '../../public/data/series.json';
+import suggestions from '../../public/data/suggestions.json';
+
+function groupByCategory(items: { category: string }[]) {
+  const groups = new Map<string, typeof items>();
+  for (const item of items) {
+    if (!groups.has(item.category)) groups.set(item.category, []);
+    groups.get(item.category)!.push(item);
+  }
+  return [...groups.entries()];
+}
+
+const suggestionCategories = groupByCategory(suggestions);
 
 function groupByGenre(items: { title: string; year: number | null; genres: string[]; posterUrl: string | null }[]) {
   const groups = new Map<string, typeof items>();
@@ -31,17 +43,42 @@ const seriesGenres = groupByGenre(series);
       <h1>Catálogo Cachencho</h1>
       <p class="subtitle">Lo que hay para ver ahora mismo. Página temporal, compartida solo con ustedes.</p>
       <nav class="top-nav">
-        <a href="#invitacion">Invitación</a>
+        <a href="#sugerencias">Sugerencias</a>
         <a href="#peliculas">Películas ({movies.length})</a>
         <a href="#series">Series ({series.length})</a>
       </nav>
     </header>
 
     <main>
-      <section id="invitacion" class="invite-section">
-        <h2 class="section-title">No se olviden</h2>
-        <p class="invite-caption">Ignacio presenta su libro — dale una mano y aparecé si podés.</p>
-        <img class="invite-img" src="/img/invitacion.jpeg" alt="Invitación a la presentación del libro Los distintos, de Ignacio González Lowy, en Paraná Lee, Sala Mayo" width="850" height="850" />
+      <section id="sugerencias" class="suggestions-section">
+        <h2 class="section-title">Sugerencias de Cachencho</h2>
+        <p class="suggestions-caption">Todavía no están en el catálogo. Votá 👌 la que quieras que bajemos.</p>
+        {
+          suggestionCategories.map(([category, items]) => (
+            <div class="genre-block">
+              <h3 class="genre-title">{category}</h3>
+              <div class="suggestion-grid">
+                {items.map((item) => (
+                  <article class="suggestion-card" data-suggestion-id={item.id}>
+                    <img src={item.posterUrl} alt={item.title} loading="lazy" width="500" height="750" />
+                    <div class="suggestion-body">
+                      <p class="suggestion-title">
+                        {item.title} <span class="year">({item.year})</span>
+                      </p>
+                      <p class="suggestion-director">{item.director}</p>
+                      <p class="suggestion-desc">{item.description}</p>
+                      <button class="vote-btn" type="button" aria-pressed="false">
+                        <span class="vote-emoji">👌</span>
+                        <span class="vote-label">Votar</span>
+                        <span class="vote-count">0</span>
+                      </button>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        }
       </section>
 
       <section id="peliculas">
@@ -98,6 +135,55 @@ const seriesGenres = groupByGenre(series);
     <footer class="site-footer">
       <p>Página no indexada — no la compartas más allá de este link.</p>
     </footer>
+
+    <script>
+      const STORAGE_KEY = 'cachencho-votos';
+
+      function loadVotes(): Record<string, number> {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{}');
+        } catch {
+          return {};
+        }
+      }
+
+      function saveVotes(votes: Record<string, number>) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(votes));
+        } catch {
+          // localStorage no disponible (modo privado, etc.) — el voto no persiste, no rompe la página.
+        }
+      }
+
+      const votes = loadVotes();
+
+      document.querySelectorAll<HTMLElement>('.suggestion-card').forEach((card) => {
+        const id = card.dataset.suggestionId;
+        if (!id) return;
+        const btn = card.querySelector<HTMLButtonElement>('.vote-btn');
+        const countEl = card.querySelector<HTMLElement>('.vote-count');
+        if (!btn || !countEl) return;
+
+        const voted = Boolean(votes[id]);
+        btn.setAttribute('aria-pressed', String(voted));
+        btn.classList.toggle('voted', voted);
+        countEl.textContent = voted ? '1' : '0';
+
+        btn.addEventListener('click', () => {
+          const isVoted = btn.getAttribute('aria-pressed') === 'true';
+          const next = !isVoted;
+          btn.setAttribute('aria-pressed', String(next));
+          btn.classList.toggle('voted', next);
+          countEl.textContent = next ? '1' : '0';
+          if (next) {
+            votes[id] = 1;
+          } else {
+            delete votes[id];
+          }
+          saveVotes(votes);
+        });
+      });
+    </script>
 
     <style>
       :root {
@@ -167,26 +253,99 @@ const seriesGenres = groupByGenre(series);
         border-bottom: 2px solid var(--border);
       }
 
-      .invite-section {
-        text-align: center;
-        margin-bottom: 2.5rem;
+      .suggestions-section {
+        margin-bottom: 1rem;
       }
 
-      .invite-caption {
+      .suggestions-caption {
         color: var(--text-dim);
-        margin: 0 0 1rem;
+        margin: 0 0 1.5rem;
       }
 
-      .invite-img {
-        display: block;
-        margin: 0 auto;
-        width: 100%;
-        max-width: 220px;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        object-fit: contain;
-        border-radius: 10px;
+      .suggestion-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .suggestion-card {
+        display: flex;
+        gap: 0.9rem;
+        background: var(--bg-card);
         border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.8rem;
+      }
+
+      .suggestion-card img {
+        flex: 0 0 auto;
+        width: 90px;
+        height: 135px;
+        object-fit: cover;
+        border-radius: 6px;
+        background: var(--bg);
+      }
+
+      .suggestion-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        min-width: 0;
+      }
+
+      .suggestion-title {
+        margin: 0;
+        font-weight: 600;
+        font-size: 0.95rem;
+        line-height: 1.3;
+      }
+
+      .suggestion-director {
+        margin: 0;
+        font-size: 0.8rem;
+        color: var(--accent);
+      }
+
+      .suggestion-desc {
+        margin: 0.15rem 0 0.5rem;
+        font-size: 0.8rem;
+        color: var(--text-dim);
+        line-height: 1.4;
+      }
+
+      .vote-btn {
+        margin-top: auto;
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 100px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s;
+      }
+
+      .vote-btn:hover {
+        border-color: var(--accent);
+      }
+
+      .vote-btn.voted {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #0f1115;
+        font-weight: 600;
+      }
+
+      .vote-emoji {
+        font-size: 1rem;
+      }
+
+      .vote-count {
+        font-variant-numeric: tabular-nums;
       }
 
       .genre-block {
@@ -259,6 +418,14 @@ const seriesGenres = groupByGenre(series);
         .no-poster {
           width: 110px;
           height: 165px;
+        }
+        .suggestion-card {
+          flex-direction: column;
+        }
+        .suggestion-card img {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 2 / 3;
         }
       }
     </style>

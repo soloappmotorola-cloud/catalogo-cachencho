@@ -9,6 +9,15 @@
     "posterUrl": "https://image.tmdb.org/t/p/w500/8IIPZe4V2xNYFWY7lBY6GpN2L8O.jpg"
   },
   {
+    "title": "Cape Fear",
+    "year": 2026,
+    "genres": [
+      "Crimen",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/raCZsl0tmpNjSSWfmTZHfleECDF.jpg"
+  },
+  {
     "title": "El señor de las moscas",
     "year": 2026,
     "genres": [

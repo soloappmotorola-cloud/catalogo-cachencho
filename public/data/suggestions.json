@@ -1,0 +1,83 @@
+[
+  {
+    "id": "the-conversation-1974",
+    "title": "The Conversation",
+    "year": 1974,
+    "director": "Francis Ford Coppola",
+    "category": "Thriller político paranoico",
+    "description": "Un experto en vigilancia se obsesiona con una grabación que podría anunciar un asesinato. Paranoia post-Watergate, el mismo terreno que El último testigo.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dHqVBwcv1SGymOpUueRoKzcmdes.jpg"
+  },
+  {
+    "id": "klute-1971",
+    "title": "Klute",
+    "year": 1971,
+    "director": "Alan J. Pakula",
+    "category": "Thriller político paranoico",
+    "description": "Primera pieza de la trilogía de la paranoia de Pakula — el mismo director de El último testigo, que ya está en el catálogo.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tVyINAsNGSgD1OIstqwCcs7wyGH.jpg"
+  },
+  {
+    "id": "serpico-1973",
+    "title": "Serpico",
+    "year": 1973,
+    "director": "Sidney Lumet",
+    "category": "Thriller político paranoico",
+    "description": "El director de Punto Límite en otro registro: un policía infiltrado contra la corrupción de su propia fuerza.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/pRagfd10PPWryFRSzLPIivfAXHJ.jpg"
+  },
+  {
+    "id": "le-cercle-rouge-1970",
+    "title": "Le Cercle Rouge",
+    "year": 1970,
+    "director": "Jean-Pierre Melville",
+    "category": "Noir de precisión",
+    "description": "Mismo director que El silencio de un hombre (Le Samouraï) — atraco silencioso y código de honor, el Melville más depurado.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/w56La43IJnGpLepgqfGCAZsbQPp.jpg"
+  },
+  {
+    "id": "high-and-low-1963",
+    "title": "Cielo e infierno (High and Low)",
+    "year": 1963,
+    "director": "Akira Kurosawa",
+    "category": "Noir de precisión",
+    "description": "Kurosawa fuera del samurái: un secuestro que se convierte en procedimiento policial de precisión quirúrgica. El otro lado de Sanjuro.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tgNjemQPG96uIezpiUiXFcer5ga.jpg"
+  },
+  {
+    "id": "bird-crystal-plumage-1970",
+    "title": "El pájaro de las plumas de cristal",
+    "year": 1970,
+    "director": "Dario Argento",
+    "category": "Giallo",
+    "description": "La ópera prima de Argento, el mismo director de Rojo oscuro — acá todavía inventando las reglas del género.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dpALRkwodEIT7TGX9SqTgwVNn0i.jpg"
+  },
+  {
+    "id": "blood-and-black-lace-1964",
+    "title": "Seis mujeres para el asesino",
+    "year": 1964,
+    "director": "Mario Bava",
+    "category": "Giallo",
+    "description": "Mario Bava inaugurando el giallo antes de que existiera el nombre — sin esta película no hay Rojo oscuro ni Argento.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/zYCQjsdktEvlWTRap836iI5paEL.jpg"
+  },
+  {
+    "id": "lamb-2021",
+    "title": "Lamb",
+    "year": 2021,
+    "director": "Valdimar Jóhannsson",
+    "category": "Horror elevado / folk",
+    "description": "Islandia rural, un duelo silencioso y algo que no debería existir en el establo — el tono contenido de Anticristo y Take Shelter.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gP9yviboTGWGolqUZKIB1UkF1C2.jpg"
+  },
+  {
+    "id": "devils-bath-2024",
+    "title": "El baño del diablo",
+    "year": 2024,
+    "director": "Veronika Franz & Severin Fiala",
+    "category": "Horror elevado / folk",
+    "description": "Austria, 1750: la melancolía documentada como enfermedad. Estreno en Berlinale, sin distribución masiva — el heredero de Anticristo que casi nadie vio.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/txVfrmwFOKB5qczM0ENYSqKMnSv.jpg"
+  }
+]
