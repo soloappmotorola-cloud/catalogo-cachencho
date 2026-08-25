@@ -3,6 +3,7 @@
 ## Índice
 - [Spec](#spec)
 - [Sesión 1 — 2026-08-15](#sesión-1--2026-08-15)
+- [Sesión 2 — 2026-08-25](#sesión-2--2026-08-25)
 
 ## Spec
 
@@ -38,6 +39,31 @@ Arranque del proyecto (Día 0) y primera versión funcional.
 - **Pasada de revisión antes de publicar** (a pedido del usuario, "vamos muy apurado"): se encontraron y corrigieron tres cosas reales antes del deploy — géneros de series sin traducir (TMDB TV devuelve "Action & Adventure"/"Sci-Fi & Fantasy"/"War & Politics" en inglés aunque Jellyfin ya trae los géneros de película en español; se agregó diccionario de traducción en `export-data.mjs`), el nav sin `flex-wrap` con el link nuevo (podía desbordar en celular angosto), y una imagen estirada (el atributo HTML `height="850"` le ganaba al `aspect-ratio` en CSS porque nunca se puso `height: auto` — el box quedaba 220px de ancho x 850 de alto).
 - **Sección "No se olviden"** agregada a pedido del usuario: invitación a la presentación de un libro de un amigo del grupo (Ignacio González Lowy, "Los distintos", Paraná Lee), imagen en `public/img/invitacion.jpeg`, sección propia con link en el nav.
 
+## Sesión 2 — 2026-08-25
+
+### Contexto
+
+10 días después de la Sesión 1. El sitio seguía vivo y publicado (`catalogo-cachencho.netlify.app`), pese a que la spec original lo pensaba para ~3 días de vida útil. Pedido del usuario: completar el catálogo con lo que faltara, sacar la sección de invitación al libro (ya cumplió su fecha) y agregar una sección de sugerencias de películas para votar.
+
+### Catálogo actualizado y sección de sugerencias
+
+- `npm run export-data` corrido de nuevo: 72→74 películas, 20→21 series (la biblioteca de Jellyfin creció desde la Sesión 1).
+- Sección "No se olviden" (invitación al libro de Ignacio) eliminada — nav, sección HTML e imagen `public/img/invitacion.jpeg` borrados.
+- Nueva sección **"Sugerencias de Cachencho"**: 9 títulos fuera de la biblioteca actual, agrupados en 4 categorías (thriller político paranoico, noir de precisión, giallo, horror elevado/folk), cada uno con póster, director y descripción corta. Data en `public/data/suggestions.json` (mismo patrón que `movies.json`/`series.json`, estático, no runtime).
+  - **Metadata resuelta vía Radarr** (`/api/v3/movie/lookup`), no Seerr — el endpoint `/api/v1/movie/{tmdbId}` de Seerr empezó a devolver 403 "You do not have permission to access this endpoint" para cualquier tmdbId (incluso los que habían funcionado minutos antes para el export de movies.json), mientras `/api/v1/status` seguía respondiendo 200 con la misma key. No se investigó la causa raíz — quedó pendiente. Radarr lookup fue el workaround, ya usado en session 2 del mediaserver para el chequeo de KATSEYE.
+- **Voto 👌 por sugerencia**: local únicamente (`localStorage`, clave `cachencho-votos`), sin backend compartido — decisión explícita del usuario al preguntarle, porque el sitio es estático en Netlify sin backend y no valía la pena meter Supabase para esto. Cada visitante vota solo para sí mismo; no hay conteo agregado entre amigos.
+- Probado en local (`npx astro build` + `npx astro dev` puerto 4321, navegador) antes de tocar Netlify — carátulas cargando (200 en los 9 posters de TMDB), voto persistiendo tras reload, sección de invitación confirmada ausente.
+
+### Incidente de deploy: token de Netlify vencido, casi se crea un sitio duplicado
+
+- Al ir a deployar, `netlify deploy --prod` tiraba `JSONHTTPError: Not Found` y `netlify sites:list` no mostraba el proyecto `catalogo-cachencho` en absoluto. Diagnóstico apresurado (equivocado): se asumió que el sitio se había dado de baja solo, coincidiendo con que ya habían pasado los ~3 días de vida útil planeados.
+- **Antes de actuar sobre esa asunción se creó por error un sitio nuevo** (`catalogo-cachencho-caf021f1.netlify.app`) bajo una cuenta de Netlify distinta (`NodoPropio Servidores`, la que tenía el CLI logueado localmente en esa sesión) — el usuario cortó esto a tiempo ("estás improvisando, entra a Netlify en el navegador").
+- **Causa real, encontrada entrando a `app.netlify.com` con el navegador** (logueado como `soloappmotorola`, la cuenta dueña real del proyecto — misma cuenta que el repo de GitHub): el sitio **nunca se cayó**, seguía publicado y sirviendo 200 OK todo el tiempo. Lo que pasó fue que el **personal access token `catalogo-cachencho CLI deploy` (creado en la Sesión 1) expiró el 22 de agosto** — el CLI perdió acceso a esa cuenta y silenciosamente cayó a otra sesión logueada en la máquina, sin avisar de ningún error de autenticación real (el mensaje "Not Found" no lo dejaba ver).
+- **Arreglo real**: token nuevo generado desde el navegador (`app.netlify.com/user/applications`, 7 días de expiración — mismo criterio que el original), usado como `NETLIFY_AUTH_TOKEN` para un `netlify deploy --prod` puntual apuntando al `siteId` real (`a7760ed3-8a57-408d-9207-dd4ef7ec6310`). Deploy confirmado en vivo en la URL original, `catalogo-cachencho.netlify.app` — el link que ya tenían los amigos sigue siendo el mismo, no cambió nada para ellos.
+- El sitio de más creado por el error (`catalogo-cachencho-caf021f1`) fue borrado a pedido del usuario (`netlify sites:delete`).
+- **Lección para la próxima**: si `netlify deploy`/`sites:list` no encuentra el proyecto, chequear primero `app.netlify.com` en el navegador (qué cuenta está logueada ahí, si el token vigente venció) antes de asumir que el sitio se cayó o de crear uno nuevo. Un `JSONHTTPError: Not Found` del CLI de Netlify puede ser simplemente "estás autenticado como la cuenta equivocada", no "el recurso no existe".
+
 ### Pendiente (decisión del usuario)
-- Conectar y deployar en Netlify — todavía no hecho, siguiente paso.
-- Decidir cuándo bajar la página pasados los ~3 días de vida útil pensados.
+- El token de Netlify nuevo vence el 2026-09-01 (7 días) — para el próximo deploy después de esa fecha, generar uno nuevo desde `app.netlify.com/user/applications` con la cuenta `soloappmotorola`.
+- Seguir sin resolver: por qué `/api/v1/movie/{tmdbId}` de Seerr empezó a devolver 403 para tmdbIds arbitrarios. No bloqueó nada (se usó Radarr de workaround) pero si se necesita de nuevo el proxy de Seerr a TMDB, hay que investigarlo.
+- Decidir si la página sigue viva indefinidamente o se le pone una fecha real de baja — la spec original la pensaba para ~3 días y ya lleva 10.
