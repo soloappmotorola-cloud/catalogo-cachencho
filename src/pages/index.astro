@@ -14,20 +14,16 @@ function groupByCategory(items: { category: string }[]) {
 
 const suggestionCategories = groupByCategory(suggestions);
 
-function groupByGenre(items: { title: string; year: number | null; genres: string[]; posterUrl: string | null }[]) {
-  const groups = new Map<string, typeof items>();
+function uniqueGenres(items: { genres: string[] }[]) {
+  const set = new Set<string>();
   for (const item of items) {
-    const genres = item.genres.length ? item.genres : ['Sin género'];
-    for (const genre of genres) {
-      if (!groups.has(genre)) groups.set(genre, []);
-      groups.get(genre)!.push(item);
-    }
+    for (const genre of item.genres) set.add(genre);
   }
-  return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], 'es'));
+  return [...set].sort((a, b) => a.localeCompare(b, 'es'));
 }
 
-const movieGenres = groupByGenre(movies);
-const seriesGenres = groupByGenre(series);
+const movieGenreList = uniqueGenres(movies);
+const seriesGenreList = uniqueGenres(series);
 ---
 
 <!doctype html>
@@ -81,54 +77,56 @@ const seriesGenres = groupByGenre(series);
         }
       </section>
 
-      <section id="peliculas">
-        <h2 class="section-title">Películas</h2>
-        {
-          movieGenres.map(([genre, items]) => (
-            <div class="genre-block">
-              <h3 class="genre-title">{genre}</h3>
-              <div class="card-row">
-                {items.map((item) => (
-                  <article class="card">
-                    {item.posterUrl ? (
-                      <img src={item.posterUrl} alt={item.title} loading="lazy" width="500" height="750" />
-                    ) : (
-                      <div class="no-poster">{item.title}</div>
-                    )}
-                    <p class="card-title">
-                      {item.title} {item.year ? <span class="year">({item.year})</span> : null}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          ))
-        }
+      <section id="peliculas" class="browse-section">
+        <h2 class="section-title">Películas ({movies.length})</h2>
+        <div class="genre-filter" role="group" aria-label="Filtrar películas por género">
+          <button class="chip active" type="button" data-genre="">Todos</button>
+          {movieGenreList.map((genre) => (
+            <button class="chip" type="button" data-genre={genre}>{genre}</button>
+          ))}
+        </div>
+        <div class="grid">
+          {movies.map((item) => (
+            <article class="card" data-genres={item.genres.join('|')}>
+              {item.posterUrl ? (
+                <img src={item.posterUrl} alt={item.title} loading="lazy" width="500" height="750" />
+              ) : (
+                <div class="no-poster">{item.title}</div>
+              )}
+              <p class="card-title">
+                {item.title} {item.year ? <span class="year">({item.year})</span> : null}
+              </p>
+              <p class="card-genres">{item.genres.join(' · ')}</p>
+            </article>
+          ))}
+        </div>
+        <p class="empty-state" hidden>Nada con ese género.</p>
       </section>
 
-      <section id="series">
-        <h2 class="section-title">Series</h2>
-        {
-          seriesGenres.map(([genre, items]) => (
-            <div class="genre-block">
-              <h3 class="genre-title">{genre}</h3>
-              <div class="card-row">
-                {items.map((item) => (
-                  <article class="card">
-                    {item.posterUrl ? (
-                      <img src={item.posterUrl} alt={item.title} loading="lazy" width="500" height="750" />
-                    ) : (
-                      <div class="no-poster">{item.title}</div>
-                    )}
-                    <p class="card-title">
-                      {item.title} {item.year ? <span class="year">({item.year})</span> : null}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          ))
-        }
+      <section id="series" class="browse-section">
+        <h2 class="section-title">Series ({series.length})</h2>
+        <div class="genre-filter" role="group" aria-label="Filtrar series por género">
+          <button class="chip active" type="button" data-genre="">Todos</button>
+          {seriesGenreList.map((genre) => (
+            <button class="chip" type="button" data-genre={genre}>{genre}</button>
+          ))}
+        </div>
+        <div class="grid">
+          {series.map((item) => (
+            <article class="card" data-genres={item.genres.join('|')}>
+              {item.posterUrl ? (
+                <img src={item.posterUrl} alt={item.title} loading="lazy" width="500" height="750" />
+              ) : (
+                <div class="no-poster">{item.title}</div>
+              )}
+              <p class="card-title">
+                {item.title} {item.year ? <span class="year">({item.year})</span> : null}
+              </p>
+              <p class="card-genres">{item.genres.join(' · ')}</p>
+            </article>
+          ))}
+        </div>
+        <p class="empty-state" hidden>Nada con ese género.</p>
       </section>
     </main>
 
@@ -181,6 +179,29 @@ const seriesGenres = groupByGenre(series);
             delete votes[id];
           }
           saveVotes(votes);
+        });
+      });
+
+      document.querySelectorAll<HTMLElement>('.browse-section').forEach((section) => {
+        const chips = section.querySelectorAll<HTMLButtonElement>('.chip');
+        const cards = section.querySelectorAll<HTMLElement>('.card');
+        const emptyState = section.querySelector<HTMLElement>('.empty-state');
+
+        chips.forEach((chip) => {
+          chip.addEventListener('click', () => {
+            chips.forEach((c) => c.classList.remove('active'));
+            chip.classList.add('active');
+
+            const genre = chip.dataset.genre ?? '';
+            let visibleCount = 0;
+            cards.forEach((card) => {
+              const genres = (card.dataset.genres ?? '').split('|');
+              const show = genre === '' || genres.includes(genre);
+              card.hidden = !show;
+              if (show) visibleCount += 1;
+            });
+            if (emptyState) emptyState.hidden = visibleCount > 0;
+          });
         });
       });
     </script>
@@ -348,6 +369,7 @@ const seriesGenres = groupByGenre(series);
         font-variant-numeric: tabular-nums;
       }
 
+      /* Sugerencias sigue agrupada por categoría — son 9 títulos, no 74 */
       .genre-block {
         margin-bottom: 2rem;
       }
@@ -360,22 +382,46 @@ const seriesGenres = groupByGenre(series);
         letter-spacing: 0.04em;
       }
 
-      .card-row {
+      .genre-filter {
         display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0 0 1.5rem;
       }
 
-      .card {
-        flex: 0 0 auto;
-        width: 140px;
+      .chip {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-dim);
+        border-radius: 100px;
+        padding: 0.35rem 0.85rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s, color 0.15s;
+      }
+
+      .chip:hover {
+        border-color: var(--accent);
+        color: var(--text);
+      }
+
+      .chip.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #0f1115;
+        font-weight: 600;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1.25rem 1rem;
       }
 
       .card img,
       .no-poster {
-        width: 140px;
-        height: 210px;
+        width: 100%;
+        aspect-ratio: 2 / 3;
         border-radius: 8px;
         object-fit: cover;
         background: var(--bg-card);
@@ -398,9 +444,21 @@ const seriesGenres = groupByGenre(series);
         line-height: 1.3;
       }
 
+      .card-genres {
+        margin: 0.2rem 0 0;
+        font-size: 0.72rem;
+        color: var(--text-dim);
+      }
+
       .year {
         color: var(--text-dim);
         font-weight: normal;
+      }
+
+      .empty-state {
+        color: var(--text-dim);
+        text-align: center;
+        padding: 2rem 0;
       }
 
       .site-footer {
@@ -411,13 +469,9 @@ const seriesGenres = groupByGenre(series);
       }
 
       @media (max-width: 480px) {
-        .card {
-          width: 110px;
-        }
-        .card img,
-        .no-poster {
-          width: 110px;
-          height: 165px;
+        .grid {
+          grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+          gap: 1rem 0.6rem;
         }
         .suggestion-card {
           flex-direction: column;
