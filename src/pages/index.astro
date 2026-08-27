@@ -135,50 +135,90 @@ const seriesGenreList = uniqueGenres(series);
     </footer>
 
     <script>
-      const STORAGE_KEY = 'cachencho-votos';
+      // "cachencho-votados" recuerda, por navegador, en qué sugerencias YA votó esta persona
+      // (para no dejarla sumar de nuevo al recargar). El conteo real y compartido entre todos
+      // los que entran vive en el servidor (Netlify Blobs vía /api/votes), no acá.
+      const VOTED_KEY = 'cachencho-votados';
 
-      function loadVotes(): Record<string, number> {
+      function loadVoted(): Record<string, true> {
         try {
-          return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{}');
+          return JSON.parse(localStorage.getItem(VOTED_KEY) ?? '{}');
         } catch {
           return {};
         }
       }
 
-      function saveVotes(votes: Record<string, number>) {
+      function saveVoted(voted: Record<string, true>) {
         try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(votes));
+          localStorage.setItem(VOTED_KEY, JSON.stringify(voted));
         } catch {
-          // localStorage no disponible (modo privado, etc.) — el voto no persiste, no rompe la página.
+          // localStorage no disponible (modo privado, etc.) — el estado de "ya voté" no persiste, no rompe la página.
         }
       }
 
-      const votes = loadVotes();
+      const votedByMe = loadVoted();
+      const cards = document.querySelectorAll<HTMLElement>('.suggestion-card');
 
-      document.querySelectorAll<HTMLElement>('.suggestion-card').forEach((card) => {
+      function setButtonState(card: HTMLElement, voted: boolean, count: number) {
+        const btn = card.querySelector<HTMLButtonElement>('.vote-btn');
+        const countEl = card.querySelector<HTMLElement>('.vote-count');
+        if (!btn || !countEl) return;
+        btn.setAttribute('aria-pressed', String(voted));
+        btn.classList.toggle('voted', voted);
+        countEl.textContent = String(count);
+      }
+
+      // Estado inicial optimista (por si /api/votes tarda o falla): 0, o 1 si esta persona ya votó antes.
+      cards.forEach((card) => {
+        const id = card.dataset.suggestionId;
+        if (!id) return;
+        setButtonState(card, Boolean(votedByMe[id]), votedByMe[id] ? 1 : 0);
+      });
+
+      fetch('/api/votes')
+        .then((res) => (res.ok ? res.json() : {}))
+        .then((counts: Record<string, number>) => {
+          cards.forEach((card) => {
+            const id = card.dataset.suggestionId;
+            if (!id) return;
+            setButtonState(card, Boolean(votedByMe[id]), counts[id] ?? 0);
+          });
+        })
+        .catch(() => {
+          // Sin conexión a la función (ej. corriendo con `astro dev` sin `netlify dev`) — se queda con el estado local.
+        });
+
+      cards.forEach((card) => {
         const id = card.dataset.suggestionId;
         if (!id) return;
         const btn = card.querySelector<HTMLButtonElement>('.vote-btn');
         const countEl = card.querySelector<HTMLElement>('.vote-count');
         if (!btn || !countEl) return;
 
-        const voted = Boolean(votes[id]);
-        btn.setAttribute('aria-pressed', String(voted));
-        btn.classList.toggle('voted', voted);
-        countEl.textContent = voted ? '1' : '0';
-
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', async () => {
           const isVoted = btn.getAttribute('aria-pressed') === 'true';
           const next = !isVoted;
-          btn.setAttribute('aria-pressed', String(next));
-          btn.classList.toggle('voted', next);
-          countEl.textContent = next ? '1' : '0';
-          if (next) {
-            votes[id] = 1;
-          } else {
-            delete votes[id];
+          const delta = next ? 1 : -1;
+
+          // Optimista: refleja el cambio antes de esperar la respuesta del servidor.
+          const optimisticCount = Math.max(0, Number(countEl.textContent) + delta);
+          setButtonState(card, next, optimisticCount);
+          if (next) votedByMe[id] = true; else delete votedByMe[id];
+          saveVoted(votedByMe);
+
+          try {
+            const res = await fetch('/api/votes', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id, delta }),
+            });
+            if (res.ok) {
+              const data = await res.json();
+              setButtonState(card, next, data.count);
+            }
+          } catch {
+            // Sin conexión a la función — se queda con el conteo optimista local.
           }
-          saveVotes(votes);
         });
       });
 
