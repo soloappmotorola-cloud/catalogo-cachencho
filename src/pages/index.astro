@@ -414,13 +414,14 @@ const seriesGenreList = uniqueGenres(series);
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(140px, 165px));
         gap: 1.25rem 1rem;
       }
 
       .card img,
       .no-poster {
         width: 100%;
+        height: auto;
         aspect-ratio: 2 / 3;
         border-radius: 8px;
         object-fit: cover;
@@ -470,7 +471,7 @@ const seriesGenreList = uniqueGenres(series);
 
       @media (max-width: 480px) {
         .grid {
-          grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(105px, 125px));
           gap: 1rem 0.6rem;
         }
         .suggestion-card {
