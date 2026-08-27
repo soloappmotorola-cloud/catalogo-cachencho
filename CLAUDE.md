@@ -4,6 +4,7 @@
 - [Spec](#spec)
 - [Sesión 1 — 2026-08-15](#sesión-1--2026-08-15)
 - [Sesión 2 — 2026-08-25](#sesión-2--2026-08-25)
+- [Sesión 3 — 2026-08-26](#sesión-3--2026-08-26)
 
 ## Spec
 
@@ -13,7 +14,7 @@
 
 **Restricciones**:
 - No exponer la IP/PC del servidor casero. La página no debe pegarle en runtime a Jellyfin ni a ningún servicio corriendo en la LAN del usuario.
-- Los datos (JSON de películas/series) se generan una vez de forma local y se dejan **estáticos** — commiteados al repo de GitHub del sitio, no fetched en vivo.
+- Los datos (JSON de películas/series/sugerencias) se generan una vez de forma local y se dejan **estáticos** — commiteados al repo de GitHub del sitio, no fetched en vivo. Única excepción, agregada en Sesión 3: el conteo de votos de "Sugerencias de Cachencho" es dinámico (Netlify Function + Blobs) — el sitio dejó de ser 100% estático a partir de ahí, ver esa sesión.
 - Carátulas: se usan URLs del CDN público de TMDB (`image.tmdb.org`), no imágenes servidas por Jellyfin. El `tmdbId` de cada ítem sale de la metadata de Jellyfin; el `posterPath` se resuelve contra la API de Seerr local (que ya proxea TMDB) al momento de generar el JSON, no en runtime del sitio.
 - Link **no listado**: `robots.txt` bloqueando indexación, sin sitemap. No público en el sentido de buscable.
 - Deploy: probar local con Astro dev server primero. Netlify para servirlo de verdad — pendiente de confirmación explícita del usuario antes de crear el repo remoto en GitHub y antes de conectar/desplegar en Netlify (acciones visibles hacia afuera).
@@ -67,3 +68,31 @@ Arranque del proyecto (Día 0) y primera versión funcional.
 - El token de Netlify nuevo vence el 2026-09-01 (7 días) — para el próximo deploy después de esa fecha, generar uno nuevo desde `app.netlify.com/user/applications` con la cuenta `soloappmotorola`.
 - Seguir sin resolver: por qué `/api/v1/movie/{tmdbId}` de Seerr empezó a devolver 403 para tmdbIds arbitrarios. No bloqueó nada (se usó Radarr de workaround) pero si se necesita de nuevo el proxy de Seerr a TMDB, hay que investigarlo.
 - Decidir si la página sigue viva indefinidamente o se le pone una fecha real de baja — la spec original la pensaba para ~3 días y ya lleva 10.
+
+---
+
+## Sesión 3 — 2026-08-26
+
+### Contexto
+
+Al día siguiente de la Sesión 2, el usuario miró el catálogo con calma y encontró dos problemas de fondo: la agrupación por género (heredada del diseño original) repetía cada ítem una vez por cada género que tenía, haciendo la página larguísima, y las series quedaban mezcladas entre bloques de género en vez de estar todas juntas. Además pidió que el voto de "Sugerencias de Cachencho" (hasta ahora solo local, Sesión 2) pasara a ser un conteo real compartido entre todos los que entran al sitio.
+
+### Reorganización: grilla única + filtro por chip
+
+- Se le presentaron 3 opciones al usuario (grilla+filtro, grilla sin filtro, agrupado sin repetir); eligió grilla única + chips de filtro por género.
+- `groupByGenre` (que devolvía cada género con sus items, duplicando ítems multi-género) reemplazada por `uniqueGenres` (solo la lista de géneros para los chips). Películas y series ahora se renderizan en **una sola grilla cada una**, ordenadas alfabéticamente (ya venían así del JSON), con los géneros como texto chico debajo del título en vez de headers de sección.
+- Chips de género (`Todos` + cada género, 17 en películas + 8 en series) filtran client-side por `data-genres` en cada tarjeta — sin recargar la página. Misma sección de Sugerencias sigue agrupada por categoría (son solo 9 títulos, no hace falta la grilla ahí).
+- **Bug encontrado al probar en local**: las carátulas se veían gigantes (cientos de px de alto) en vez de mantener proporción 2:3. Es el **mismo bug ya documentado en la Sesión 1** con la imagen de invitación — el atributo HTML `height="750"` del `<img>` le gana a `aspect-ratio: 2/3` en CSS si no se pone `height: auto` explícito. Arreglado agregando esa línea. De paso se topó el ancho máximo de columna de la grilla (`minmax(140px, 165px)` en vez de `minmax(140px, 1fr)`) porque con `1fr` las carátulas se estiraban de más cuando una fila no se llenaba del todo.
+- Verificado en local (`astro dev`) antes de publicar: 95 tarjetas en total (74+21, cada una una sola vez), chip "Terror" filtrando correctamente, carátulas ya con proporción correcta.
+
+### Voto compartido: Netlify Function + Blobs
+
+- El usuario preguntó si se podía guardar el voto "por GitHub" para no exponer nada. Se le explicó por qué esa no es la ruta correcta acá (cada voto sería un commit al repo → dispara un rebuild de Netlify por click, gasta créditos y ensucia el historial) y se propuso la alternativa real: **Netlify Function + Netlify Blobs**, sin exponer ninguna credencial al navegador (el acceso a Blobs lo inyecta Netlify automáticamente del lado del servidor).
+- `netlify/functions/votes.mts`: función server-side (Netlify Functions v2, formato `Request`/`Response`), expone `GET /api/votes` (devuelve el objeto de conteos) y `POST /api/votes` con `{id, delta}` (`delta` ±1) para sumar/restar, validando el `id` contra la lista fija de las 9 sugerencias. Guarda todo en un único blob JSON (`votes` store, key `counts`).
+- Dependencia nueva: `@netlify/blobs` (`^10.7.13` — la versión que ya traía `astro`/`unstorage` como dependencia transitiva; la última (`11.x`) pide Node ≥22.19 y el server sigue en Node 20.19.2, mismo techo de siempre en este proyecto).
+- Front-end (`index.astro`): el `localStorage` (`cachencho-votados`) pasó a guardar **solo si esta persona ya votó** (para no dejarla votar dos veces desde el mismo navegador) — el número que se muestra siempre viene de `GET /api/votes` al cargar, y cada click hace `POST` con el delta y actualiza con el conteo real que devuelve el servidor (optimista mientras espera la respuesta).
+- **Probado local con `netlify dev`** (no `astro dev` — ese no simula Functions): ojo, `netlify dev --port 4321` choca porque Astro ya usa ese puerto internamente; corrió bien sin forzar `--port` (Netlify eligió 8888, Astro atrás en 4321). Confirmado end-to-end: votar sube el conteo, `curl http://localhost:8888/api/votes` lo confirma independiente del navegador, reload persiste, des-votar vuelve a 0.
+- Deploy a producción: `netlify deploy --prod --dir=dist` empaqueta la función automáticamente desde `netlify/functions/` (no hace falta nada especial, se ve "Functions bundling" en el log). Confirmado en `catalogo-cachencho.netlify.app`: `/api/votes` responde `{}` (store real de producción, separado del sandbox local) — no se votó nada a propósito para no ensuciar el conteo real de los amigos.
+- Efecto colateral en la spec del proyecto: el sitio **dejó de ser 100% estático** a partir de acá (ver nota en Restricciones). Sigue sin exponer nada de la LAN del usuario ni tocar Jellyfin/Seerr en runtime — el único componente dinámico es el conteo de votos, autocontenido en Netlify.
+
+### Estado al cierre ✅ SESIÓN 3 COMPLETA — catálogo reorganizado en grilla única + filtro por chip (sin repetir ítems, series y películas cada una junta), bug de carátulas gigantes encontrado y arreglado antes de publicar, y voto de sugerencias pasado de local-only a conteo real compartido vía Netlify Function + Blobs sin exponer ninguna credencial. Todo verificado en local antes de cada deploy y confirmado en producción después.
