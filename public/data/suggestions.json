@@ -79,5 +79,113 @@
     "category": "Horror elevado / folk",
     "description": "Austria, 1750: la melancolía documentada como enfermedad. Estreno en Berlinale, sin distribución masiva — el heredero de Anticristo que casi nadie vio.",
     "posterUrl": "https://image.tmdb.org/t/p/w500/txVfrmwFOKB5qczM0ENYSqKMnSv.jpg"
+  },
+  {
+    "id": "lives-of-others-2006",
+    "title": "La vida de los otros",
+    "year": 2006,
+    "director": "Florian Henckel von Donnersmarck",
+    "category": "Thriller político paranoico",
+    "description": "Un agente de la Stasi vigila a un dramaturgo en la Alemania Oriental de los 80 y termina cuestionando su propia lealtad al régimen. Oscar a mejor película extranjera.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/huApj1ufTmVTDcKqi2SY3zmqcyJ.jpg"
+  },
+  {
+    "id": "13-minutes-2015",
+    "title": "13 Minutes",
+    "year": 2015,
+    "director": "Oliver Hirschbiegel",
+    "category": "Thriller político paranoico",
+    "description": "Reconstrucción del intento de asesinato a Hitler de Georg Elser en 1939, un carpintero que actuó solo, años antes de la Operación Valquiria.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gboXPiS00XJusdLQM5CsWwlLrgD.jpg"
+  },
+  {
+    "id": "sorcerer-1977",
+    "title": "Sorcerer",
+    "year": 1977,
+    "director": "William Friedkin",
+    "category": "Thriller político paranoico",
+    "description": "Cuatro fugitivos transportan nitroglicerina inestable por la selva sudamericana para escapar de sus pasados. Fracasó en taquilla compitiendo contra Star Wars, hoy reivindicada como obra maestra de tensión.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9wUj6uXvrUDZl5Xgw6hDZmyROOr.jpg"
+  },
+  {
+    "id": "man-from-london-2007",
+    "title": "El hombre de Londres",
+    "year": 2008,
+    "director": "Béla Tarr",
+    "category": "Noir de precisión",
+    "description": "Un guardavías presencia un crimen en el puerto y queda atrapado por el dinero robado. Adaptación de Simenon, cine lento y moralmente denso.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1Prf1Vdm88msqt4uvZ2iH5VysEy.jpg"
+  },
+  {
+    "id": "adieu-lami-1968",
+    "title": "Adieu l'ami",
+    "year": 1968,
+    "director": "Jean Herman",
+    "category": "Noir de precisión",
+    "description": "Alain Delon y Charles Bronson, atrapados juntos en una caja fuerte durante un fin de semana largo, entre golpe y desconfianza mutua.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/i0yQM4vHNR2zZE6ZqLAYOIp7dOy.jpg"
+  },
+  {
+    "id": "comfort-of-strangers-1990",
+    "title": "The Comfort of Strangers",
+    "year": 1990,
+    "director": "Paul Schrader",
+    "category": "Noir de precisión",
+    "description": "Una pareja en Venecia es seducida por un desconocido (Christopher Walken) cuyas intenciones se vuelven cada vez más siniestras. Guion de Harold Pinter sobre novela de Ian McEwan.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/r5g3AKvdNFG2AvZ2fzFRyG8Vov2.jpg"
+  },
+  {
+    "id": "berberian-sound-studio-2012",
+    "title": "Berberian Sound Studio",
+    "year": 2012,
+    "director": "Peter Strickland",
+    "category": "Giallo",
+    "description": "Un ingeniero de sonido inglés se hunde psicológicamente mientras graba los efectos de una película de giallo italiana en los años 70.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/sCrLZYF7TU32Vk5bOIJneVAcoKE.jpg"
+  },
+  {
+    "id": "two-evil-eyes-1990",
+    "title": "Two Evil Eyes",
+    "year": 1990,
+    "director": "Dario Argento y George A. Romero",
+    "category": "Giallo",
+    "description": "Antología de dos historias basadas en Edgar Allan Poe, cada director filma la suya por separado — mismo Argento de Rojo oscuro, ya en el catálogo, en pareja con el padre del zombie moderno.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/4vyqDMcMPR3fPPPkaL8Asx80Ckh.jpg"
+  },
+  {
+    "id": "phenomena-1985",
+    "title": "Phenomena",
+    "year": 1985,
+    "director": "Dario Argento",
+    "category": "Giallo",
+    "description": "Una adolescente con la capacidad de comunicarse con insectos ayuda a resolver una serie de asesinatos en un internado suizo — mismo director que Rojo oscuro, ya en el catálogo.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dhk14s8ogQkbf6re3HLKV2UBHjx.jpg"
+  },
+  {
+    "id": "devils-backbone-2001",
+    "title": "El espinazo del diablo",
+    "year": 2001,
+    "director": "Guillermo del Toro",
+    "category": "Horror elevado / folk",
+    "description": "En un orfanato durante la Guerra Civil española, un niño nuevo descubre el fantasma de otro chico desaparecido. Precursora directa de El laberinto del fauno.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/wKHHsu1awdIUHq6OlkMoxEPNylB.jpg"
+  },
+  {
+    "id": "dybbuk-1937",
+    "title": "The Dybbuk",
+    "year": 1937,
+    "director": "Michał Waszyński",
+    "category": "Horror elevado / folk",
+    "description": "Clásico del cine yiddish: el espíritu de un joven muerto posee a la novia de otro hombre en la noche de bodas. Preservado en el Registro Nacional de Cine de EEUU.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3fl3xSSFfiEgm32AJLTiAepHxiV.jpg"
+  },
+  {
+    "id": "reflecting-skin-1990",
+    "title": "The Reflecting Skin",
+    "year": 1990,
+    "director": "Philip Ridley",
+    "category": "Horror elevado / folk",
+    "description": "Gótico americano en la pradera de los 50: un niño sospecha que su vecina viuda es un vampiro. Viggo Mortensen en un papel temprano.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/nQs5OljJs1nZxVpDxpoBhbMI7ix.jpg"
   }
 ]

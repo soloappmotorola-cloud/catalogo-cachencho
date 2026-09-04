@@ -27,6 +27,17 @@
     "posterUrl": "https://image.tmdb.org/t/p/w500/5MA3UfOBuHEogiH6mv2BMrnBxNE.jpg"
   },
   {
+    "title": "Avatar Aang: El último maestro del aire",
+    "year": 2026,
+    "genres": [
+      "Animación",
+      "Acción",
+      "Aventura",
+      "Fantasía"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/e2VzQmZufeY3BPH0zWtIyr07Z7w.jpg"
+  },
+  {
     "title": "Backrooms",
     "year": 2026,
     "genres": [
@@ -62,7 +73,7 @@
       "Acción",
       "Comedia"
     ],
-    "posterUrl": "https://image.tmdb.org/t/p/w500/blfTYXDP1luoeku48pVkrZ6Zjwv.jpg"
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rWcfOdY7TU6lTdazWj0ebDZnAfO.jpg"
   },
   {
     "title": "Bugonia",
@@ -102,6 +113,16 @@
     "posterUrl": "https://image.tmdb.org/t/p/w500/k5dXkYYgjRcWFfgm8dSdYr9abAc.jpg"
   },
   {
+    "title": "Diabel (The Devil)",
+    "year": 1972,
+    "genres": [
+      "Terror",
+      "Historia",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dKoWmSs6btbp3qKJlhUrp5vU52S.jpg"
+  },
+  {
     "title": "El acorazado Potemkin",
     "year": 1925,
     "genres": [
@@ -129,6 +150,16 @@
       "Suspense"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/8yQ7RDPPBlHMYdIo4ihPkHkOfnY.jpg"
+  },
+  {
+    "title": "El estrangulador de Rillington Place",
+    "year": 1971,
+    "genres": [
+      "Crimen",
+      "Suspense",
+      "Historia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7ThwaCfz9q0phntJe9zi3NIpAaY.jpg"
   },
   {
     "title": "El Gran Rugido",
@@ -202,6 +233,15 @@
     "posterUrl": "https://image.tmdb.org/t/p/w500/7ag7BOMnAuDKwNyI0wc8jTeimRb.jpg"
   },
   {
+    "title": "Gorrión rojo",
+    "year": 2018,
+    "genres": [
+      "Suspense",
+      "Misterio"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/cho8HedXkO1z8D4sqyFw3ko0hMh.jpg"
+  },
+  {
     "title": "Hiroshima mon amour",
     "year": 1959,
     "genres": [
@@ -232,6 +272,16 @@
     "posterUrl": "https://image.tmdb.org/t/p/w500/yONVGkDGZ07WGAR5Fq0GErzHUZ9.jpg"
   },
   {
+    "title": "Kill List",
+    "year": 2011,
+    "genres": [
+      "Terror",
+      "Suspense",
+      "Crimen"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qwT2I3ons0oD58jIppKmd4qLtvB.jpg"
+  },
+  {
     "title": "La batalla de Argel",
     "year": 1966,
     "genres": [
@@ -260,17 +310,6 @@
       "Ciencia ficción"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/h8DykeLWkZtG1wKcIqBj82ffwoU.jpg"
-  },
-  {
-    "title": "La leyenda de Aang: El último Airbender",
-    "year": 2026,
-    "genres": [
-      "Animación",
-      "Acción",
-      "Aventura",
-      "Fantasía"
-    ],
-    "posterUrl": "https://image.tmdb.org/t/p/w500/e2VzQmZufeY3BPH0zWtIyr07Z7w.jpg"
   },
   {
     "title": "La momia de Lee Cronin",
@@ -391,6 +430,15 @@
     "posterUrl": "https://image.tmdb.org/t/p/w500/rmCkNtzYR2xTOO3ZXmIqB5zgYdE.jpg"
   },
   {
+    "title": "Phantasma",
+    "year": 1979,
+    "genres": [
+      "Terror",
+      "Ciencia ficción"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3cV302yuv4Dr3p4Nm566CtbhINc.jpg"
+  },
+  {
     "title": "Pickpocket",
     "year": 1959,
     "genres": [
@@ -439,6 +487,16 @@
     "posterUrl": "https://image.tmdb.org/t/p/w500/xI395veQyi2da6gzo7JLBN0anx7.jpg"
   },
   {
+    "title": "Ran",
+    "year": 1985,
+    "genres": [
+      "Acción",
+      "Drama",
+      "Historia"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/feChXPgGQhhRfvkzhzoKVp8RLpQ.jpg"
+  },
+  {
     "title": "Repo Man (El recuperador)",
     "year": 1984,
     "genres": [
@@ -475,7 +533,7 @@
       "Crimen",
       "Suspense"
     ],
-    "posterUrl": "https://image.tmdb.org/t/p/w500/4oAt5z4IODM7yPFGevNJ1Qg7ij8.jpg"
+    "posterUrl": "https://image.tmdb.org/t/p/w500/buPFnHZ3xQy6vZEHxbHgL1Pc6CR.jpg"
   },
   {
     "title": "Sirat: Trance en el desierto",
@@ -685,18 +743,6 @@
       "Drama"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/ecsJAiMViUkFdeJ9sRzzxiCt7fa.jpg"
-  },
-  {
-    "title": "Zootrópolis 2",
-    "year": 2025,
-    "genres": [
-      "Animación",
-      "Aventura",
-      "Comedia",
-      "Misterio",
-      "Familia"
-    ],
-    "posterUrl": "https://image.tmdb.org/t/p/w500/LrMBxFwnsMgXTnaWqHYinn3vDN.jpg"
   },
   {
     "title": "Воздух",

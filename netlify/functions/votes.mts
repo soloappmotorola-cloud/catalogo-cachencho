@@ -12,6 +12,18 @@ const VALID_IDS = new Set([
   'blood-and-black-lace-1964',
   'lamb-2021',
   'devils-bath-2024',
+  'lives-of-others-2006',
+  '13-minutes-2015',
+  'sorcerer-1977',
+  'man-from-london-2007',
+  'adieu-lami-1968',
+  'comfort-of-strangers-1990',
+  'berberian-sound-studio-2012',
+  'two-evil-eyes-1990',
+  'phenomena-1985',
+  'devils-backbone-2001',
+  'dybbuk-1937',
+  'reflecting-skin-1990',
 ]);
 
 export default async (req: Request) => {

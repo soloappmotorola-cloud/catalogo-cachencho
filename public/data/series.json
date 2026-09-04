@@ -55,6 +55,15 @@
     "posterUrl": "https://image.tmdb.org/t/p/w500/7pHMZ6EsZfs2qZu0Lv2UGtTo5MU.jpg"
   },
   {
+    "title": "Fundación",
+    "year": 2021,
+    "genres": [
+      "Ciencia ficción y fantasía",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9kxffO5nrGBCw8pQoKEVx7q0VW7.jpg"
+  },
+  {
     "title": "Heridas abiertas",
     "year": 2018,
     "genres": [
@@ -73,6 +82,15 @@
       "Comedia"
     ],
     "posterUrl": "https://image.tmdb.org/t/p/w500/hAI5wOXpKdbTRnjSZMw9FpfKlMS.jpg"
+  },
+  {
+    "title": "Materia oscura",
+    "year": 2024,
+    "genres": [
+      "Ciencia ficción y fantasía",
+      "Drama"
+    ],
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8ckubtGN3gYdp8KO6RCz8wSg7rE.jpg"
   },
   {
     "title": "MINDHUNTER",
